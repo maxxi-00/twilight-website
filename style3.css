@@ -1,0 +1,228 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Banner{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(authorBG.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #ff0000;
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    cursor: pointer;
+    animation: spin 2s ease-in-out infinite;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 10px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #ff0000;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px;
+    display: block;
+}
+
+.navbar .nav-links li {
+    position: relative; 
+}
+
+.navbar .nav-links li a::after {
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #ffffff;
+    position: absolute;
+    left: 50%; 
+    bottom: 5px;
+    transition: width 0.3s ease;
+    transform: translateX(-50%); 
+}
+
+.navbar .nav-links li a:hover::after {
+    width: calc(100% - 20px); 
+}
+
+.toggle-nav {
+    display: none;
+}
+
+.toggle-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: red;
+}
+
+@media screen and (max-width: 768px) {
+    .toggle-nav:checked + .toggle-icon + .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        position: absolute;
+        top: 80px;
+        left: -32px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(0, 0, 0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .nav-links li a{
+        color: white;
+    }
+
+    .toggle-icon {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+}
+
+@media screen and (max-width: 1024px){
+    .author-container{
+        flex-wrap: wrap;
+    }
+}
+
+.author-container{
+    flex: 1;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 20px;
+}
+
+.author-container .img-con{
+    max-width: 280px;
+    min-width: 280px;
+    overflow: hidden;
+    animation: moving 2s ease-in-out infinite alternate-reverse;
+}
+
+.author-container .img-con img{
+    width: 100%;
+    height: 100%;
+    transition: ease-in-out 200ms;
+}
+
+.author-container .img-con img:hover{
+    scale: 1.1;
+}
+
+.author-container .details-con{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.557), rgba(255, 0, 0, 0.253));
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    padding: 30px;
+    font-family: 'Poppins';
+    color: white;
+    line-height: 1.6em;
+    border-radius: 20px;
+    box-shadow: 0px 2px 2px 0px white;
+}
+
+.author-container .details-con h1{
+    color: rgb(199, 0, 0);
+    line-height: 1.2em;
+}
+
+.author-container .details-con p{
+    opacity: .9;
+}
+
+
+.author-container .details-con .moreBtn{
+    padding: 10px;
+    align-self: flex-start;
+    background-color: black;
+    border-radius: 10px;
+    opacity: .8;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+}
+
+.author-container .details-con .moreBtn:hover{
+    opacity: 1;
+}
+
+
+
+@keyframes spin {
+    from{
+        transform: rotateY(360deg);
+    }
+
+    to{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes animateUp {
+    from{
+        transform: translateY(20px);
+    }
+    
+    to{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes moving {
+    from{
+        transform: rotateZ(2deg);
+    }
+    
+    to{
+        transform: rotateZ(-2deg);
+    }
+}
